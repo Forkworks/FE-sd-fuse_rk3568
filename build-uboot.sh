@@ -21,7 +21,7 @@ set -eu
 true ${SOC:=rk3568}
 true ${DISABLE_MKIMG:=0}
 
-UBOOT_REPO=https://github.com/friendlyarm/uboot-rockchip
+UBOOT_REPO=https://github.com/Forkworks/FE-uboot-rockchip
 UBOOT_BRANCH=nanopi5-v2017.09
 
 TOPPATH=$PWD
@@ -106,13 +106,13 @@ if [ ! -d ${UBOOT_SRC} ]; then
 fi
 if [ ! -d ${UBOOT_SRC}/../rkbin ]; then
     (cd ${UBOOT_SRC}/../ && {
-        git clone https://github.com/friendlyarm/rkbin -b nanopi5
+        git clone https://github.com/Forkworks/FE-rkbin -b nanopi5
     })
 fi
 
 if [ ! -d /opt/FriendlyARM/toolchain/11.3-aarch64 ]; then
 	echo "please install aarch64-gcc-11.3 first, using these commands: "
-	echo "    git clone https://github.com/friendlyarm/prebuilts.git -b master --depth 1"
+	echo "    git clone https://github.com/Forkworks/FE-prebuilts.git -b master --depth 1"
 	echo "    cd prebuilts/gcc-x64"
 	echo "    sudo tar xvf toolchain-11.3-aarch64.tar.xz -C /"
 	exit 1

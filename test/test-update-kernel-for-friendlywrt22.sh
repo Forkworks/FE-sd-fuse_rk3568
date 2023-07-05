@@ -2,7 +2,7 @@
 set -eu
 
 HTTP_SERVER=112.124.9.243
-KERNEL_URL=https://github.com/friendlyarm/kernel-rockchip
+KERNEL_URL=https://github.com/Forkworks/Fe-kernel-rockchip
 KERNEL_BRANCH=nanopi5-v5.10.y_opt
 
 # hack for me

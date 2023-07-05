@@ -2,7 +2,7 @@
 set -eux
 
 HTTP_SERVER=112.124.9.243
-UBOOT_REPO=https://github.com/friendlyarm/uboot-rockchip
+UBOOT_REPO=https://github.com/Forkworks/FE-uboot-rockchip
 UBOOT_BRANCH=nanopi5-v2017.09
 
 # hack for me

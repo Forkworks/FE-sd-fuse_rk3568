@@ -29,7 +29,7 @@ true ${ENABLE_BACKPORTS:=1}
 true ${BUILD_THIRD_PARTY_DRIVER:=1}
 true ${KCFG:=nanopi5_linux_defconfig}
 
-KERNEL_REPO=https://github.com/friendlyarm/kernel-rockchip
+KERNEL_REPO=https://github.com/Forkworks/FE-kernel-rockchip
 KERNEL_BRANCH=nanopi5-v5.10.y_opt
 ARCH=arm64
 KALL=nanopi5-images
@@ -37,6 +37,7 @@ CROSS_COMPILE=aarch64-linux-gnu-
 BACKPORT=
 export PATH=/opt/FriendlyARM/toolchain/11.3-aarch64/bin/:$PATH
 
+# USB wifi driver (not necessary)
 declare -a KERNEL_3RD_DRIVERS=("https://github.com/friendlyarm/rtl8821CU" "https://github.com/friendlyarm/rtl8822bu" "https://github.com/friendlyarm/rtl8812au")
 declare -a KERNEL_3RD_DRIVER_BRANCHES=("nanopi-r2" "nanopi-r2" "nanopi-r2")
 declare -a KERNEL_3RD_DRIVER_NAME=("rtl8821CU" "rtl8822bu" "rtl8812au")
@@ -67,7 +68,7 @@ build_external_module() {
 function build_backports() {
     pushd ${OUT}
         if [ ! -d backports ]; then
-            git clone https://github.com/friendlyarm/backports -b main --depth 1 backports
+            git clone https://github.com/Forkworks/FE-backports -b main --depth 1 backports
         fi
         pushd backports
             [ -f .config ] || make CROSS_COMPILE=${CROSS_COMPILE} ARCH=${ARCH} KLIB_BUILD=${KERNEL_SRC} defconfig-nanopi6
@@ -178,7 +179,7 @@ fi
 
 if [ ! -d /opt/FriendlyARM/toolchain/11.3-aarch64 ]; then
 	echo "please install aarch64-gcc-11.3 first, using these commands: "
-	echo "    git clone https://github.com/friendlyarm/prebuilts.git -b master --depth 1"
+	echo "    git clone https://github.com/Forkworks/FE-prebuilts.git -b master --depth 1"
 	echo "    cd prebuilts/gcc-x64"
 	echo "    sudo tar xvf toolchain-11.3-aarch64.tar.xz -C /"
 	exit 1
